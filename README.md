@@ -48,4 +48,9 @@ Baz------|
 - For a client to connect to another client, two out of one way has to possible:
 - The connection request itself specify the necessary information to connect, OR,
 - The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
-- This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree.
+- This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree to contribute to. In a distributed environment, such a system might not exist at all (or locally).
+
+### Improvements:
+- Non-blocking calls can be leveraged.
+- An explicit clean-up function can be called for interrupted runs or even in case of an exception for deeper (and procedural) roll-back/clean-up.
+- Unit tests can be written first to which the design should then conform.
