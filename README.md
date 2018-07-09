@@ -20,6 +20,8 @@
 --> SKIPPED <--
 
 ### Steps - running the application (this is described in "Graph" below):
+- _Enter the appropriate directory_
+- `chmod u+x client.py`
 - `./client.py --name A --port 8001 &`
 - `./client.py --name B --port 8002 &`
 - `./client.py --name C --port 8003 --bootnodes A:8001,B:8002 &`
