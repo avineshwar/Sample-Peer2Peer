@@ -5,10 +5,10 @@
 ### System Requirements:
 - Python 2.7 should be installed and present in PATH environment variable
 
-Instructions - virtual environment setup:
+### Instructions - virtual environment setup:
 --> SKIPPED <--
 
-HowTo - testing guidelines:
+### HowTo - testing guidelines:
 1) Usability testing needs to be done. It helps focusing on the ease and/or intuitiveness of value extraction.
 2) Individual functions should be unit tested (included) once a non-contradictory behaviour has been identified and defined. This is a part of white-box testing.
 3) Acceptance testing is needed to ensures that the product meets the acceptability guidelines for integrability in the ecosystem.
