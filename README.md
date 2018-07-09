@@ -9,33 +9,43 @@
 --> SKIPPED <--
 
 ### HowTo - testing guidelines:
-1) Usability testing needs to be done. It helps focusing on the ease and/or intuitiveness of value extraction.
-2) Individual functions should be unit tested (included) once a non-contradictory behaviour has been identified and defined. This is a part of white-box testing.
-3) Acceptance testing is needed to ensures that the product meets the acceptability guidelines for integrability in the ecosystem.
-4) From a black-box testing perspective, fuzz testing needs to be performed for testing the resiliency.
+- Usability testing is pending.
+-- It helps focusing on the ease and/or intuitiveness of value extraction.
+- Individual functions should be unit tested (tests not included) once a non-contradictory behaviour has been identified and defined.
+-- This is a part of white-box testing.
+- Acceptance testing is needed to ensures that the product meets the acceptability guidelines for integrability in the ecosystem.
+- From a black-box testing perspective, fuzz testing needs to be performed for testing the resiliency.
 
-Instructions - running the unit tests:
-1)
-2)
-3)
+### Instructions - running the unit tests:
+--> SKIPPED <--
 
-Examples - sample run:
-1) `./client` <-- this should exit 0, which information around accessing help
-2) `./client -h` <-- this should exit 0 with some help information
-    2.1) `./client -h` <-- further flags should not be evaluated
-3) `./client --help` <-- ditto to point 2. Also prefer "--help" over "-h" as it might be deprecated
-    3.1) `./client --help` <-- ditto to point 2.1
-4) `./client arg1 -arg2 --arg3` <-- fails due to the incorrectness in argc
-5) `./client --arg1 1 --arg2 2 --arg3 3` <-- this should work fine
-6) `./client --arg1 1 --arg2 2` <-- ditto as point 5
-7) `./client --arg1 1 --arg2 2 --arg3 3,4,5` <-- ditto as point 5
-8) `./client --arg1 1, --arg2 --arg3 3,4,` <-- fails as at least one of the argument is malformed
-9) `./client --arg4 4 --arg2 2 --arg3 3` <-- fails as an unknown flag encountered
-10) `./client --arg1 -1 --arg2 2 --arg3 3,4` <-- fails as at least one of the argument is malformed
+### Steps - running the application (this is described in "Graph" below):
+- `./client.py --name A --port 8001 &`
+- `./client.py --name B --port 8002 &`
+- `./client.py --name C --port 8003 --bootnodes A:8001,B:8002 &`
 
-Steps - running the application:
-1)
-2)
-3)
-4)
+### Sample - Test run:
+- `curl localhost:8001`
+- `curl localhost:8002`
+- `curl localhost:8003`
+- `curl localhost:8003/whisper?name=foo&message=hello`
+- `curl localhost:8003/whisper?name=bar&message=hello`
+- `curl localhost:8002/whisper?name=baz&message=hello`
+- `curl localhost:8001/whisper?name=baz&message=hello`
 
+
+### Graph - Connection map:
+```
+Foo
+ ^
+ |      Bar
+ |       ^
+ |       |
+Baz------|
+```
+
+### Design Ideology - How is it designed:
+- For a client to connect to another client, two out of one way has to possible:
+-- The connection request itself specify the necessary information to connect, OR,
+-- The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
+--- This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree.
