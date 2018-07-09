@@ -45,6 +45,8 @@ Baz------|
 ```
 
 ### Design Ideology - How is it designed:
+- The listening code (server) runs in a thread separate from the main thread.
+- The program (main thread) will not exit till the listening code (a separate thread) is running.
 - For a client to connect to another client, two out of one way has to possible:
 - The connection request itself specify the necessary information to connect, OR,
 - The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
