@@ -45,7 +45,7 @@ Baz------|
 ```
 
 ### Design Ideology - How is it designed:
-1) For a client to connect to another client, two out of one way has to possible:
-1.1) The connection request itself specify the necessary information to connect, OR,
-1.2) The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
-1.2.1) This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree.
+- For a client to connect to another client, two out of one way has to possible:
+- The connection request itself specify the necessary information to connect, OR,
+- The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
+- This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree.
