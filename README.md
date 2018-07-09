@@ -50,6 +50,8 @@ Baz------|
 - The client is already having the necessary information to connect; otherwise a _Request cannot be fulfilled_ message is appropriate.
 - This is a design limitation which can be overcome by having a reference information present on the system to which all the clients agree to contribute to. In a distributed environment, such a system might not exist at all (or locally).
 
+_Print statements at proper locations can give an insight of the state machine, at any given time. They have been removed._
+
 ### Improvements:
 - Non-blocking calls can be leveraged.
 - An explicit clean-up function can be called for interrupted runs or even in case of an exception for deeper (and procedural) roll-back/clean-up.
