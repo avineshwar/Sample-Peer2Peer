@@ -27,13 +27,13 @@
 - `./client.py --name C --port 8003 --bootnodes A:8001,B:8002 &`
 
 ### Sample - Test run:
-- `curl localhost:8001`
-- `curl localhost:8002`
-- `curl localhost:8003`
-- `curl localhost:8003/whisper?name=foo&message=hello`
-- `curl localhost:8003/whisper?name=bar&message=hello`
-- `curl localhost:8002/whisper?name=baz&message=hello`
-- `curl localhost:8001/whisper?name=baz&message=hello`
+- `curl 'localhost:8001'`
+- `curl 'localhost:8002'`
+- `curl 'localhost:8003`
+- `curl 'localhost:8003/whisper?name=foo&message=hello'`
+- `curl 'localhost:8003/whisper?name=bar&message=hello'`
+- `curl 'localhost:8002/whisper?name=baz&message=hello'`
+- `curl 'localhost:8001/whisper?name=baz&message=hello'`
 
 
 ### Graph - Connection map:
